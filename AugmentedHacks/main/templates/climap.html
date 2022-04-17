@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
@@ -27,6 +33,8 @@
         </div>
     </nav>
     <div class="carousel slide flex-shrink-1" data-bs-ride="carousel" data-bs-pause="false" id="carousel-1">
+        <div id="map"></div>
+        <script src="assets/js/map.js"></script>
         <div class="carousel-inner">
             <div class="carousel-item active fitim"><img class="w-100 d-block" src="../../../assets/img/scaled-lanscape-background.png" alt="Slide Image"></div>
             <div class="carousel-item fitim"><img class="w-100 d-block" src="../../../assets/img/intro-bg.jpg" alt="Slide Image"></div>
