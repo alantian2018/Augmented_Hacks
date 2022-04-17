@@ -1,3 +1,6 @@
+{% block content %}
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
@@ -5,10 +8,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 
@@ -24,7 +27,7 @@
             </div>
         </div>
     </nav>
-    <header class="masthead" style="background-image:url('assets/img/intro-bg.jpg');">
+    <header class="masthead" style="background-image:url('../../../assets/img/intro-bg.jpg');">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
@@ -48,7 +51,7 @@
             </div>
         </div>
     </section>
-    <section class="text-center download-section content-section" data-aos="slide-left" data-aos-once="true" id="download" style="background-image:url('assets/img/downloads-bg.jpg');">
+    <section class="text-center download-section content-section" data-aos="slide-left" data-aos-once="true" id="download" style="background-image:url('../../../assets/img/downloads-bg.jpg');">
         <div class="container">
             <div class="col-lg-8 mx-auto" data-aos="zoom-in" data-aos-once="true">
                 <h1>Try Climap</h1>
@@ -72,10 +75,13 @@
         </div>
     </section>
     <div class="map-clean"></div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="assets/js/grayscale.js"></script>
+    <script src="../../../assets/js/grayscale.js"></script>
 </body>
 
 </html>
+
+
+{% endblock %}
