@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>AugmentedHacks</title>
-    <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/bootstrap/css/climap.css">
+    <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/assets/bootstrap/css/climap.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
-    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -26,8 +26,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item nav-link"><a class="nav-link active" href="#about">About</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#explore">Explore</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="#contact">contact</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="/index">Explore</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="/contact">contact</a></li>
                 </ul>
             </div>
         </div>
@@ -36,9 +36,9 @@
         <div id="map"></div>
         <script src="assets/js/map.js"></script>
         <div class="carousel-inner">
-            <div class="carousel-item active fitim"><img class="w-100 d-block" src="../../../assets/img/scaled-lanscape-background.png" alt="Slide Image"></div>
-            <div class="carousel-item fitim"><img class="w-100 d-block" src="../../../assets/img/intro-bg.jpg" alt="Slide Image"></div>
-            <div class="carousel-item fitim"><img class="w-100 d-block" src="../../../assets/img/scaled-topography.png" alt="Slide Image"></div>
+            <div class="carousel-item active fitim"><img class="w-100 d-block" src="{% static 'assets/img/scaled-lanscape-background.png' %}" alt="Slide Image"></div>
+            <div class="carousel-item fitim"><img class="w-100 d-block" src="{% static 'assets/img/intro-bg.jpg'%}" alt="Slide Image"></div>
+            <div class="carousel-item fitim"><img class="w-100 d-block" src="{%  static 'assets/img/scaled-topography.png' %}" alt="Slide Image"></div>
         </div>
         <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
         <ol class="carousel-indicators">
@@ -47,10 +47,10 @@
             <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
         </ol>
     </div>
-    <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../../assets/js/bs-init.js"></script>
+    <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="../../../assets/js/grayscale.js"></script>
+    <script src="../../static/assets/js/grayscale.js"></script>
 </body>
 
 
