@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from  . import views
 urlpatterns = [
-    path('explore', views.show_explore,name ='explore'),
+    path('climap', views.show_explore,name ='explore'),
     path ('',views.show_home, name ='home')
 
 ]
