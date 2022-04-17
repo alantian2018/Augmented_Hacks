@@ -18,6 +18,6 @@ from django.urls import path
 from  . import views
 urlpatterns = [
     path('climap', views.show_explore,name ='explore'),
-    path ('',views.show_home, name ='home')
-
+    path ('',views.show_home, name ='home'),
+    path ('about',views.show_about, name ='about us')
 ]
