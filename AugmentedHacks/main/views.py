@@ -9,3 +9,7 @@ def show_home(request):
     return render(request=request, template_name="home.html")
 def show_explore(request):
     return render(request=request, template_name="climap.html")
+def show_about (request):
+    return render (request , 'about_us.html')
+def show_contact (request):
+    return render(request,'contact.html')

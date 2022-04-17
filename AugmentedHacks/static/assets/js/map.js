@@ -1,7 +1,9 @@
+
+
 // Creating map options
 var mapOptions = {
    center: [10, 10],
-   zoom: 10
+   zoom: 5
 }
 
 // Creating a map object
@@ -14,4 +16,7 @@ var layer = new L.TileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jp
 // 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
 // Adding layer to the map
+//console.log (__dirname);
+
 map.addLayer(layer);
+
