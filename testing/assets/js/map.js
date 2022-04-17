@@ -31,6 +31,22 @@ var opacityOptions = {
 var baseOpacity = new L.Control.OpacitySlider(null, opacityOptions.opacityBaseControl.options);
 // baseOpacity.addTo(popmap);
 
+d3.json(Globals.resourceWithPath("countries.geo.json"), function (json){
+	function style(feature) {
+		return {
+			fillColor: "#E3E3E3",
+			weight: 1,
+			opacity: 0.4,
+			color: 'white',
+			fillOpacity: 0.3
+		};
+	}
+	C.geojson = L.geoJson(json, {
+		onEachFeature: onEachFeature,
+		style : style
+	}).addTo(popmap);
+});
+
 map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
