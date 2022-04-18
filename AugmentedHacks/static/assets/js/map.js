@@ -16,6 +16,8 @@ slider.oninput = function () {
 // Creating a map object
 var map = new L.map('map', mapOptions);
 var popmap = new L.map('pop-map', mapOptions);
+map.options.maxZoom = 14;
+popmap.options.maxZoom = 14;
 
 // Creating a Layer object
 var layer = new L.TileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=hM01WZAOFjwbYPSEZYOj', {
@@ -110,8 +112,6 @@ var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json", {styl
 // console.log(geoJson);
 geoJson.addTo(popmap);
 
-map.options.maxZoom = 12;
-popmap.options.maxZoom = 12;
 map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
