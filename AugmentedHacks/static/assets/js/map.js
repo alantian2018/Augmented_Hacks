@@ -4,6 +4,15 @@ var mapOptions = {
     zoom: 5
 }
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function () {
+    output.innerHTML = this.value;
+}
+
 // Creating a map object
 var map = new L.map('map', mapOptions);
 var popmap = new L.map('pop-map', mapOptions);
@@ -68,7 +77,44 @@ var poplayer = L.tileLayer.gl({
 //      }).addTo(popmap);
 //  });
 
-var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json");
+var countries = json.parse(static_url + "assets/co2data.json");
+
+function hslToHex(h, s, l) {
+	l /= 100;
+	const a = s * Math.min(l, 1 - l) / 100;
+	const f = n => {
+	  const k = (n + h / 30) % 12;
+	  const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+	  return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+	};
+	return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+function getColor(name) {
+	if (name in countries)
+	{
+		value = countries[name][slider.value];
+		value /= 1000.0;
+		return hslToHex(value*360, 100, 100)
+	}
+	else
+	{
+		return "#fffff"
+	}
+}
+
+function recolor(feature) {
+	return {
+		weight: 2,
+		opacity: 1,
+		color: 'white',
+		dashArray: '3',
+		fillOpacity: 0.5,
+		fillColor: getColor(feature.properties.name)
+	}
+}
+
+var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json", {style: recolor});
 // console.log(geoJson);
 geoJson.addTo(popmap);
 
@@ -76,12 +122,3 @@ map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
 popmap.sync(map);
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function () {
-    output.innerHTML = this.value;
-}
