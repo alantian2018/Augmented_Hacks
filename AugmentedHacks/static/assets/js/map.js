@@ -332,7 +332,7 @@ function getColor2(name) {
     if (name in countries) {
         var value = countries[name][slider.value - 2022];
         value = Math.abs(value);
-        value = Math.log(value) / 30;
+        value = Math.log(value) / 20;
         value = Math.min(0.5, value);
         console.log(value);
         return value;
