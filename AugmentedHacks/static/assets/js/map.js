@@ -14,11 +14,8 @@ var layer = new L.TileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jp
 });
 var noGreen = `
 	void main(void) {
-		// Classic texel look-up (fetch the texture "pixel" color for this fragment)
 		vec4 texelColour = texture2D(uTexture0, vec2(vTextureCoords.s, vTextureCoords.t));
 
-		// If uncommented, this would output the image "as is"
-		// gl_FragColor = texelColour;
         float maxC = 0.7;
 		// Let's mix the colours a little bit, inverting the red and green channels.
 		if(texelColour.r > maxC && texelColour.g > maxC && texelColour.b > maxC) {
@@ -34,39 +31,34 @@ var poplayer = L.tileLayer.gl({
     tileUrls: ['https://tile.casa.ucl.ac.uk/duncan/WorldPopDen2015b/{z}/{x}/{y}.png'],
     fragmentShader: noGreen,
 });
-//poplayer.putImageData(imageData, 0, 0);w
-// 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
-// Adding layer to the map
+var legend = L.control({position: 'bottomleft'});
+function getColor(d) {
+    return d > 40000  ? '#ff9e00' :
+           d > 22000  ? '#ff0000' :
+           d > 15000  ? '#990049' :
+           d >10000   ? '#00309f' :
+           d > 1000   ? '#a8e3e5' :
+           d > 0   ?    '#f4fbf2' :
+                        'white';
+}
+legend.onAdd = function (map) {
 
-//  var opacityOptions = {
-//     opacityBaseControl: {
-//        options: {
-//          sliderImageUrl: "https://unpkg.com/leaflet-transparency@0.0.2/images/opacity-slider3d7.png",
-//          backgroundColor: "rgba(0, 0, 0, 0.9)",
-//          position: 'topright',
-//        },
-//     }
-//  }
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 1000, 10000, 15000, 22000,40000],
+        grades2=["0","1k","10k","15k","22k","40k"]
+        labels = [];
+    div.innerHTML+='<h style="font-size:18px;">Pop. Density</h><br><br>'
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades2[i] + (grades2[i + 1] ? '&ndash;' + grades2[i + 1] + '<br>' : '+');
+    }
 
-//  var baseOpacity = new L.Control.OpacitySlider(null, opacityOptions.opacityBaseControl.options);
-// baseOpacity.addTo(popmap);
+    return div;
+};
 
-//  d3.json(Globals.resourceWithPath("countries.geo.json"), function (json){
-//      function style(feature) {
-//          return {
-//              fillColor: "#E3E3E3",
-//              weight: 1,
-//              opacity: 0.4,
-//              color: 'white',
-//              fillOpacity: 0.3
-//          };
-//      }
-//      C.geojson = L.geoJson(json, {
-//          onEachFeature: onEachFeature,
-//          style : style
-//      }).addTo(popmap);
-//  });
 
 var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json");
 // console.log(geoJson);
@@ -76,12 +68,10 @@ map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
 popmap.sync(map);
-
+legend.addTo(map);
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
+output.innerHTML = slider.value;
 slider.oninput = function () {
     output.innerHTML = this.value;
 }
