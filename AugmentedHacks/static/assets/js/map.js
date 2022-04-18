@@ -16,8 +16,8 @@ slider.oninput = function () {
 // Creating a map object
 var map = new L.map('map', mapOptions);
 var popmap = new L.map('pop-map', mapOptions);
-map.options.maxZoom = 11;
-popmap.options.maxZoom = 11;
+map.options.maxZoom = 10;
+popmap.options.maxZoom = 10;
 
 // Creating a Layer object
 var layer = new L.TileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=hM01WZAOFjwbYPSEZYOj', {
