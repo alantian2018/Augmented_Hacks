@@ -13,7 +13,7 @@ Drag the slider at the bottom of the screen to view predictions of future greenh
 [You can try it out on our website!](https://pollution.theglobaltech.org/)
 ***
 ### Methodologies
-In order to predict the effect climate change on various countries and regions around the world, we have developed a model using LSTM machine learning algorithms to predict future average carbon dioxide levels. We plan add more features in the future, and to scale this to specific cities as opposed to just countries.
+In order to predict the effect climate change on various countries and regions around the world, we have developed a model using regression to predict future average carbon dioxide levels. We plan add more features in the future, and to scale this to specific cities as opposed to just countries.
 ***
 ### Credits and References
 This project was developed during the [Augmented Hacks Hackathon](https://www.augmentedhacks.org/).
