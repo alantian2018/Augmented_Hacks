@@ -71,40 +71,40 @@ legend.onAdd = function (map) {
 
 var countries = json.parse(static_url + "assets/co2data.json");
 
-function hslToHex(h, s, l) {
-	l /= 100;
-	const a = s * Math.min(l, 1 - l) / 100;
-	const f = n => {
-	  const k = (n + h / 30) % 12;
-	  const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-	  return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
-	};
-	return `#${f(0)}${f(8)}${f(4)}`;
-}
+// function hslToHex(h, s, l) {
+// 	l /= 100;
+// 	const a = s * Math.min(l, 1 - l) / 100;
+// 	const f = n => {
+// 	  const k = (n + h / 30) % 12;
+// 	  const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+// 	  return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+// 	};
+// 	return `#${f(0)}${f(8)}${f(4)}`;
+// }
 
-function getColor(name) {
-	if (name in countries)
-	{
-		value = countries[name][slider.value];
-		value /= 1000.0;
-		return hslToHex(value*360, 100, 100)
-	}
-	else
-	{
-		return "#fffff"
-	}
-}
+// function getColor(name) {
+// 	if (name in countries)
+// 	{
+// 		value = countries[name][slider.value];
+// 		value /= 1000.0;
+// 		return hslToHex(value*360, 100, 100)
+// 	}
+// 	else
+// 	{
+// 		return "#fffff"
+// 	}
+// }
 
-function recolor(feature) {
-	return {
-		weight: 2,
-		opacity: 1,
-		color: 'white',
-		dashArray: '3',
-		fillOpacity: 0.5,
-		fillColor: getColor(feature.properties.name)
-	}
-}
+// function recolor(feature) {
+// 	return {
+// 		weight: 2,
+// 		opacity: 1,
+// 		color: 'white',
+// 		dashArray: '3',
+// 		fillOpacity: 0.5,
+// 		fillColor: getColor(feature.properties.name)
+// 	}
+// }
 
 var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json");
 // console.log(geoJson);
