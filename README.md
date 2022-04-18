@@ -11,10 +11,10 @@ Because much of this is thought to be caused by human activities, we have overla
 Drag the slider at the bottom of the screen to view predictions of future greenhouse gas levels in varying countries around the world.
 <br/>
 [You can try it out on our website!](https://pollution.theglobaltech.org/)
-[See this video about our project]()
+[See this video about our project](https://www.youtube.com/watch?v=5diupKrQ3Uc)
 ***
 ### Methodologies
-In order to predict the effect climate change on various countries and regions around the world, we have developed a model using regression to predict future average carbon dioxide levels. We plan add more features in the future, and to scale this to specific cities as opposed to just countries.
+In order to predict the effect climate change on various countries and regions around the world, we have developed a model using regression to predict future average carbon dioxide levels. We plan add more features in the future, and to scale this to specific cities as opposed to just countries. Please see the references section to view the databases and frameworks used for this project.
 ***
 ### Credits and References
 This project was developed during the [Augmented Hacks Hackathon](https://www.augmentedhacks.org/).
