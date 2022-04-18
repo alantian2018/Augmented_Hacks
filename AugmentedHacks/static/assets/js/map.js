@@ -69,7 +69,7 @@ legend.onAdd = function (map) {
 };
 
 
-var countries = json.parse(static_url + "assets/co2data.json");
+// var countries = json.parse(static_url + "assets/co2data.json");
 
 // function hslToHex(h, s, l) {
 // 	l /= 100;
