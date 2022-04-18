@@ -71,7 +71,8 @@ popmap.sync(map);
 legend.addTo(map);
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value;
+output.innerHTML ='Year: '+ slider.value;
+
 slider.oninput = function () {
-    output.innerHTML = this.value;
+    output.innerHTML ='Year: '+ this.value;
 }
