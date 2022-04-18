@@ -113,15 +113,4 @@ geoJson.addTo(popmap);
 map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
-<<<<<<< HEAD
 popmap.sync(map);
-=======
-popmap.sync(map);
-legend.addTo(map);
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-slider.oninput = function () {
-    output.innerHTML = this.value;
-}
->>>>>>> e7503774524a7e703ff3f1dd8919ab9f07042377
