@@ -419,3 +419,4 @@ x = x.reshape((1, n_steps, 1))
 ypred = model.predict(x, verbose=0)
 
 ypred
+
