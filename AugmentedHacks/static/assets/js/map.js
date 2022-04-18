@@ -68,6 +68,10 @@ var poplayer = L.tileLayer.gl({
 //      }).addTo(popmap);
 //  });
 
+var geoJson = new L.GeoJSON.AJAX("{% static 'countries.geo.json' %}");
+// console.log(geoJson);
+geoJson.addTo(popmap);
+
 map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
