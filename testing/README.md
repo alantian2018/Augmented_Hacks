@@ -52,7 +52,7 @@ geojsonLayer.refresh();//redownload the most recent layer
 geojsonLayer.refresh("new1.json");//add a new layer replacing whatever is there
 ```
 
-last but now least we can refilter layers without re adding them
+last but not least we can refilter layers without re adding them
 
 ```javascript
 var geojsonLayer = L.geoJson.ajax("data.json");
