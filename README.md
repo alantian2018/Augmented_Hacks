@@ -1,7 +1,7 @@
 # Climap 
 ***
 ### What is Climap?
-Climap is an online interactive visualizer.
+Climap is an online interactive visualizer to predict how climate change will impact the world.
 <br/>
 Current trends indicate a rise in both global temperatures and pollution within the next couple of decades.
 ***
