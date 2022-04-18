@@ -119,3 +119,4 @@ map.addLayer(layer);
 popmap.addLayer(poplayer);
 map.sync(popmap);
 popmap.sync(map);
+legend.addTo(map);
