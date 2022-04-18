@@ -68,7 +68,7 @@ var poplayer = L.tileLayer.gl({
 //      }).addTo(popmap);
 //  });
 
-var geoJson = new L.GeoJSON.AJAX(static_url + "/countries.geo.json");
+var geoJson = new L.GeoJSON.AJAX(static_url + "assets/countries.geo.json");
 // console.log(geoJson);
 geoJson.addTo(popmap);
 
