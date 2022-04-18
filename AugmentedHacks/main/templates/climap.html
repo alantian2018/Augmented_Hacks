@@ -1,67 +1,72 @@
-
 {% block content %}
-{% load static %}
+    {% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>AugmentedHacks</title>
-    <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/assets/bootstrap/css/climap.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
-    <link rel="stylesheet" href="../../static/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <script src="{% static 'assets/js/L.Map.Sync.js' %}"></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>AugmentedHacks</title>
+        <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/assets/bootstrap/css/climap.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+        <link rel="stylesheet" href="../../static/assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+              integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+              crossorigin=""/>
+        <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                crossorigin=""></script>
+        <script src='https://unpkg.com/leaflet.tilelayer.gl@latest/src/Leaflet.TileLayer.GL'></script>
+        <script src="{% static 'assets/js/L.Map.Sync.js' %}"></script>
+    </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
-    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="/">Climap</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item nav-link"><a class="nav-link " href="/about">About</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="/climap">Explore</a></li>
-                    <li class="nav-item nav-link"><a class="nav-link" href="/contact">contact</a></li>
-                </ul>
+    <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+        <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand" href="/">Climap</a>
+                <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu">
+                    <i class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item nav-link"><a class="nav-link " href="/about">About</a></li>
+                        <li class="nav-item nav-link"><a class="nav-link" href="/climap">Explore</a></li>
+                        <li class="nav-item nav-link"><a class="nav-link" href="/contact">contact</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="carousel slide flex-shrink-1" data-bs-ride="carousel" data-bs-pause="false" id="carousel-1">
-        <div id="main-page-content">
-            <div id="map-container">
-                <div id="map"></div>
-                <div id="pop-map"></div>
+        </nav>
+        <div class="carousel slide flex-shrink-1" data-bs-ride="carousel" data-bs-pause="false" id="carousel-1">
+            <div id="main-page-content">
+                <div id="map-container">
+                    <div id="map"></div>
+                    <div id="pop-map"></div>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                    <h9 id="demo"></h9>
+                </div>
+                <script src="{% static 'assets/js/map.js' %}"></script>
             </div>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                <h9 id="demo"></h9>
+            <div class="carousel-inner">
+                <div class="carousel-item active fitim"><img class="w-100 d-block" src="{% static 'assets/img/scaled-lanscape-background.png' %}" alt="Slide Image"></div>
+                <div class="carousel-item fitim"><img class="w-100 d-block" src="{% static 'assets/img/intro-bg.jpg' %}" alt="Slide Image"></div>
+                <div class="carousel-item fitim"><img class="w-100 d-block" src="{% static 'assets/img/scaled-topography.png' %}" alt="Slide Image"></div>
             </div>
-            <script src="{% static 'assets/js/map.js' %}"></script>
+            <div>
+                <a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+            </ol>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active fitim"><img class="w-100 d-block" src="{% static 'assets/img/scaled-lanscape-background.png' %}" alt="Slide Image"></div>
-            <div class="carousel-item fitim"><img class="w-100 d-block" src="{% static 'assets/img/intro-bg.jpg'%}" alt="Slide Image"></div>
-            <div class="carousel-item fitim"><img class="w-100 d-block" src="{%  static 'assets/img/scaled-topography.png' %}" alt="Slide Image"></div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
-        <ol class="carousel-indicators">
-            <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
-        </ol>
-    </div>
-    <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../static/assets/js/bs-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="../../static/assets/js/grayscale.js"></script>
-</body>
+        <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../static/assets/js/bs-init.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="../../static/assets/js/grayscale.js"></script>
+    </body>
 
 
 {% endblock %}
