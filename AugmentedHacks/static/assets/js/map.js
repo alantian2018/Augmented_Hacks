@@ -6,11 +6,11 @@ var mapOptions = {
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
+output.innerHTML ='Year: '+ slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
-    output.innerHTML = this.value;
+    output.innerHTML ='Year: '+ this.value;
 }
 
 // Creating a map object
@@ -44,22 +44,24 @@ var poplayer = L.tileLayer.gl({
 });
 
 var legend = L.control({position: 'bottomleft'});
+
 function getColor(d) {
-    return d > 40000  ? '#ff9e00' :
-           d > 22000  ? '#ff0000' :
-           d > 15000  ? '#990049' :
-           d >10000   ? '#00309f' :
-           d > 1000   ? '#a8e3e5' :
-           d > 0   ?    '#f4fbf2' :
-                        'white';
+    return d > 40000 ? '#ff9e00' :
+        d > 22000 ? '#ff0000' :
+            d > 15000 ? '#990049' :
+                d > 10000 ? '#00309f' :
+                    d > 1000 ? '#a8e3e5' :
+                        d > 0 ? '#f4fbf2' :
+                            'white';
 }
+
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [0, 1000, 10000, 15000, 22000,40000],
-        grades2=["0","1k","10k","15k","22k","40k"]
-        labels = [];
-    div.innerHTML+='<h style="font-size:18px;">Pop. Density</h><br><br>'
+        grades = [0, 1000, 10000, 15000, 22000, 40000],
+        grades2 = ["0", "1k", "10k", "15k", "22k", "40k"]
+    labels = [];
+    div.innerHTML += '<h style="font-size:18px;">Pop. Density</h><br><br>'
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -70,8 +72,8 @@ legend.onAdd = function (map) {
     return div;
 };
 
-
-var countries = JSON.parse(static_url + "assets/co2data.json");
+var countries;
+fetch(static_url + "assets/co2data.json").then(response => response.json()).then(json => countries = json);
 
 function hslToHex(h, s, l) {
 	l /= 100;
